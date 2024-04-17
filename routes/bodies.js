@@ -55,7 +55,7 @@ router.get("/moons/:name", async (req, res) => {
 
             const moonNames = planet.moons.map(moon => moon.rel.split("bodies/")[1]);
             const moonsFind = await Body.find({ id: { $in: moonNames } });
-            const moons = moonsFind.sort((a, b) => a.mass - b.mass);
+            const moons = moonsFind.sort((a, b) => b.meanRadius - a.meanRadius);
             return res.json({ result: true, moons });
 
         } else {
