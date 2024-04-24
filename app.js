@@ -13,6 +13,7 @@ require('./models/connection');
 
 var indexRouter = require('./routes/index');
 var bodiesRouter = require('./routes/bodies');
+var infosRouter = require('./routes/infos');
 
 var app = express();
 
@@ -30,5 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/bodies', bodiesRouter);
+app.use('/infos', infosRouter);
 
 module.exports = app;

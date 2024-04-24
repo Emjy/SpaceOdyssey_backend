@@ -44,11 +44,6 @@ const bodiesSchema = mongoose.Schema({
     longAscNode: Number,
     bodyType: String,
     rel: String,
-    numberOfPlanets: {
-        type: Number,
-        required: false // Définit le champ comme facultatif
-    },
-
 });
 
 const Body = mongoose.model('bodies', bodiesSchema);
