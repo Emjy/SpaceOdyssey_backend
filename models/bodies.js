@@ -43,7 +43,11 @@ const bodiesSchema = mongoose.Schema({
     argPeriapsis: Number,
     longAscNode: Number,
     bodyType: String,
-    rel: String
+    rel: String,
+    numberOfPlanets: {
+        type: Number,
+        required: false // Définit le champ comme facultatif
+    },
 
 });
 
