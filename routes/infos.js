@@ -4,7 +4,7 @@ const Info = require("../models/infos");
 
 
 // Route get data d'un objet 
-router.get("/infos/:name", async (req, res) => {
+router.get("/:name", async (req, res) => {
     try {
         const info = await Info.findOne({ id: req.params.name });
 
