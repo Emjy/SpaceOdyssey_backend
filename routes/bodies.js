@@ -47,7 +47,7 @@ router.get("/asteroids", async (req, res) => {
             return res.status(404).json({ result: false, error: "Asteroid not found" });
         }
 
-        const asteroids = asteroidFind.sort((a, b) => b.meanRadius - a.meanRadius);
+        const asteroids = asteroidFind.sort((a, b) => a.englishName - b.englishName);
         return res.json({ result: true, asteroids });
 
     } catch (error) {
