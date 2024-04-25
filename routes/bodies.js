@@ -39,7 +39,6 @@ router.get("/planets", async (req, res) => {
 });
 
 // Route get pour récupérer uniquement les astéroides
-
 router.get("/asteroids", async (req, res) => {
     try {
         const asteroidFind = await Body.find({ bodyType: 'Asteroid' });
@@ -48,7 +47,7 @@ router.get("/asteroids", async (req, res) => {
             return res.status(404).json({ result: false, error: "Asteroid not found" });
         }
 
-        const asteroids = asteroidFind.sort((a, b) => a.semimajorAxis - b.semimajorAxis);
+        const asteroids = asteroidFind.sort((a, b) => b.meanRadius - a.meanRadius);
         return res.json({ result: true, asteroids });
 
     } catch (error) {
