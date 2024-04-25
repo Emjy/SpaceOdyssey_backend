@@ -38,6 +38,25 @@ router.get("/planets", async (req, res) => {
     }
 });
 
+// Route get pour récupérer uniquement les astéroides
+
+router.get("/asteroids", async (req, res) => {
+    try {
+        const asteroidFind = await Body.find({ bodyType: 'Asteroid' });
+
+        if (!asteroidFind || asteroidFind.length === 0) {
+            return res.status(404).json({ result: false, error: "Asteroid not found" });
+        }
+
+        const asteroids = asteroidFind.sort((a, b) => a.semimajorAxis - b.semimajorAxis);
+        return res.json({ result: true, asteroids });
+
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ result: false, error: error.message });
+    }
+});
+
 
 
 // Route pour récupérer toutes les lunes d'une planète en utilisant son ID
