@@ -23,7 +23,7 @@ router.get("/body/:name", async (req, res) => {
 // Route get pour récupérer uniquement les planètes
 router.get("/planets", async (req, res) => {
     try {
-        const planetsFind = await Body.find({ isPlanet: true });
+        const planetsFind = await Body.find({ $or: [{ isPlanet: true }, { id: "pluton" }] });
 
         if (!planetsFind || planetsFind.length === 0) {
             return res.status(404).json({ result: false, error: "Planets not found" });
