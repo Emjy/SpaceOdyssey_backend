@@ -19,7 +19,7 @@ var app = express();
 
 // Configuration de CORS pour autoriser des domaines spécifiques
 const corsOptions = {
-    origin: ['http://localhost:3001', 'https://space-odyssey-frontend.vercel.app'],
+    origin: ['http://localhost:3001', 'https://space-odyssey-frontend.vercel.app', 'https://spaceodyssey.emiliengiraud.fr'],
 };
 app.use(cors(corsOptions));
 
